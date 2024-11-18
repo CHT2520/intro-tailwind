@@ -4,22 +4,20 @@
 - Open the folder in VS Code.
 - Open *index.html* in a browser. It only uses front-end technologies so doesn't need to be on a web server to run.
   - It doesn't have any styling, but make sure you can view the page.
-  - In VS Code, take a moment to look through the HTML
+  - In VS Code, take a moment to look through the HTML.
 
-  - Notice that SVG has been used to create the 'hamburger' icon
+  - Notice that SVG has been used to create the 'hamburger' icon.
 
-We will take a mobile first strategy to and implement a responsive design for this web page.
+We will take a mobile first strategy and implement a responsive design for this web page.
 
 - In a browser open the developer tools (right-click on the page and select inspect).
 - Resize the web page to about 500px, mimicking how the page would look on a mobile device.
 
 ## Designing for Mobile
 
-We will start by designing for mobile devices.
+### Adding Some Basic Styles
 
-### Adding Basic Styles
-
-- A CSS file has already been linked to the page. Find _css/style.css_ and add the following code:
+- A CSS file has already been linked to the page. Find _css/style.css_ and add the following CSS rules:
 
 ```css
 /*Basic properties*/
@@ -85,7 +83,7 @@ li {
 - Check these work.
 - Most of this is fairly basic CSS. There are a couple of interesting bits
   - By making `header-wrapper` a flexbox, its child elements (the logo and navigation icons) wrap onto the same line `justify-content:space-between` distributes these elements evenly.
-  - The `cursor:pointer` is needed to make the navigation icons act like buttons when the user moves their mouse over them.
+  - The `cursor:pointer` is needed to make the navigation icons act like buttons. When the user moves their mouse over them a pointer icon is displayed.
 
 ## Styling the Main Content of the Page
 
@@ -112,7 +110,7 @@ Next, add some rules to style the main content of the page
 ```
 - Check this works.
 - Again, there isn't anything too complex here.
-  - We want the image of the film poster to always sit in the centre of the page. This is achieved by making it a block level element and setting the `margin:auto`.
+  - We want the image of the film poster to always sit in the centre of the page. This is achieved by making it a block level element and setting `margin:auto`.
   - Try re-sizing the browser window, the poster should always sit in the centre of the page.
 
 ## Hiding and Showing the Navigation
@@ -153,7 +151,7 @@ Next, add some rules to style the main content of the page
 
 - Test this works.
 
-  - When you click the 'X', the menu and close icons will be hidden visible and the hamburger icon will be made visible.
+  - When the user clicks the 'X', the menu and close icon will be hidden and the hamburger icon will be made visible.
 
 - Finally, add a click event handler to the hamburger icon so the user can make them visible again.
 
@@ -191,8 +189,8 @@ This design works fine for mobile users. For users with larger displays they don
 - This simply hides the menu icons (we don't need them), makes sure the navigation options are visible, and wraps the navigation options onto the same line.
 - Test this works.
 
-We don't want the navigation options to appear below the log, we want them horizontally in line with the logo.
-- Add a new div `desktop-header-wrapper` i.e.
+We don't want the navigation options to appear below the logo, we want them to be horizontally aligned with the logo.
+- Add a new div `desktop-header-wrapper`, make sure you add the `div` in the correct place i.e.
 
 ```html
 <header class="header">
@@ -218,7 +216,6 @@ We don't want the navigation options to appear below the log, we want them horiz
   </div>
 </header>
 ```
-
 - Add a new css rule for this `div` element, making sure it is inside the media query declaration.
 
 ```css
@@ -252,7 +249,7 @@ We don't want the navigation options to appear below the log, we want them horiz
 }
 ```
 - This creates two columns in the main content area of the page.
-  - The recommend text should be next to the film poster. We used the `float` property to achieve this.
+  - The 'Recommended' text should be next to the film poster. We used the `float` property to achieve this.
   - The two lists of films should be side by side. We set their width to 50% and made their parent a flexbox. 
 
 ### Limiting the Final Page Size
@@ -272,10 +269,10 @@ You should find that this works fine. However, when viewed on a wider display e.
 }
 ```
 - Refresh the page, note how it fixes size at 1024 pixels.
-  - The two 'contianer' divs are limted in size. The `auto` margin makes them always sit in the centre of the page. 
+  - The two 'container' divs are limited in size. The `auto` margin makes them always sit in the centre of the page. 
 
 ## Testing Your Understanding
 - Completing the above gets a basic design to work. There are many ways in which it can be improved.
-- The navigation items would benefit from being given a bit more 'white space' and they need aligning with the logo text in both the mobile view and at wider screen sizes. 
-- The links in the main content of the page would benefit from styling e.g. changing the colour to fit with the rest of the design. Adding a `hover` to give feedback to the user.
+- The navigation items would benefit from being given a bit more 'white space' and they need aligning properly with the logo text in both the mobile view and at wider screen sizes. 
+- The links in the main content of the page would benefit from styling e.g. changing the colour to fit with the rest of the design and adding a `hover` to give feedback to the user.
 - The hamburger menu is grey. Can you change this to white. 

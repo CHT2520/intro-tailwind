@@ -275,4 +275,5 @@ You should find that this works fine. However, when viewed on a wider display e.
 - Completing the above gets a basic design to work. There are many ways in which it can be improved.
 - The navigation items would benefit from being given a bit more 'white space' and they need aligning properly with the logo text in both the mobile view and at wider screen sizes. 
 - The links in the main content of the page would benefit from styling e.g. changing the colour to fit with the rest of the design and adding a `hover` to give feedback to the user.
-- The hamburger menu is grey. Can you change this to white. 
+- The hamburger menu is grey. Can you change this to white.
+- Instead of using an 'X' for the close, can you add an SVG close icon. 

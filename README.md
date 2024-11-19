@@ -230,7 +230,7 @@ We don't want the navigation options to appear below the logo, we want them to b
 
 ### Adding a Two Columned Layout
 
-- Add the following CSS rules. Again, make sure this is within the the media query declaration.
+- Add the following CSS rules. Again, make sure this is within the media query declaration.
 
 ```css
 .main-content {

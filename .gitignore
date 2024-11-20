@@ -1,4 +1,5 @@
 /node_modules
+/css/style.css
 package.json
 package-lock.json
 tailwind.config.js

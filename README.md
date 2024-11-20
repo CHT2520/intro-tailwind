@@ -1,6 +1,6 @@
 # Getting Started with Tailwind
 
-First you need to make sure you have install Node.js - [getting_started_with_nodejs.md](Getting Started with Node.js)
+First you need to make sure you have install Node.js - [Getting Started with Node.js](getting_started_with_nodejs.md)
 
 - Once you have Node.js up and running:
   - Download (or clone) this repository and unzip it into your _htdocs_ folder.

@@ -41,7 +41,7 @@ module.exports = {
 };
 ```
 
-- Under the content property we are specfying which files Tailwind should look through for references to its CSS rules.
+- Under the content property we are specifying which files Tailwind should look through for references to its CSS rules.
 - Add the following 'tailwind directives' to _css/input.css_
 
 ```css

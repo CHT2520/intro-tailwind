@@ -1,41 +1,36 @@
 # Getting Started with Tailwind
 
-- Download (or clone) this repository and unzip it.
-- Open the folder in VS Code.
-  - You should see this is exactly the same as the example we looked at in the last session.
-- Open index.html in a web browser
-  - At the moment it has no styling, we are going to style this page using Tailwind
+First you need to make sure you have install Node.js - [getting_started_with_nodejs.md](Getting Started with Node.js)
 
-# Installing Nodejs
+- Once you have Node.js up and running:
+  - Download (or clone) this repository and unzip it into your _htdocs_ folder.
+  - Open the folder in VS Code.
+    - You should see this the same example we looked at in the last session.
+  - Open index.html in a web browser
+    - At the moment it has no styling, we are going to style this page using Tailwind
 
-# Installing Tailwind
+## Installing Tailwind
 
-- Using the shell/terminal navigate to the intro-to-tailwind directory.
-
-- To make sure you are in the right place enter the followinf
-
-```
-dir
-```
-
-- You should see the index.html file listed along with the js and css folder.
+- Using the shell/terminal navigate to the project directory.
+- To make sure you are in the right place. use `ls`/`dir` to make sure you are in the correct folder.
+  - You should see _index.html_ listed along with the _js_ and _css_ folders.
 - Next install tailwind
 
 ```
 npm install -D tailwindcss
 ```
 
-- Initialise tailwind
+- Then initialise tailwind
 
 ```
 npx tailwindcss init
 ```
 
-- This will create a tailwind.config.js file.
+- This will create a _tailwind.config.js_ file.
 - Open this file
-- Modify it so it points to 'index.html'
+- Modify it so it points to _index.html_ i.e.
 
-```
+```javascript
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html"],
@@ -43,13 +38,11 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
-- Under content we are specfying which files tailwind should look at for references to its CSS rules.
-
-- Add tailwind directives to css/input.css
-  - This simple loads some basic CSS rules that tailwind uses.
+- Under the content property we are specfying which files Tailwind should look through for references to its CSS rules.
+- Add the following 'tailwind directives' to _css/input.css_
 
 ```css
 @tailwind base;
@@ -57,32 +50,33 @@ module.exports = {
 @tailwind utilities;
 ```
 
-In your terminal/shell enter
+- This simple loads some basic CSS rules that Tailwind uses.
+- In your terminal/shell enter
 
 ```
 npx tailwindcss -i ./css/input.css -o ./css/style.css --watch
 ```
 
-- Open in a browser, you should find that tailwind has applied its default base styles to your web page.
+- Leave this window open. It is a command to watch for changes in the project and re-generate _style.css_ whenever we make a change.
+- Open in a browser, you should find that Tailwind has applied its default base styles to your web page.
 
 ## Using Tailwind
 
-- To use tailwind, we don't write our own CSS instead we simply use classes from the tailwind framework.
-- In index.html add a class attribute to the body tag i.e.
+- To use Tailwind, we don't write our own CSS instead we use classes from the framework.
+- In _index.html_ add a class attribute to the body tag i.e.
 
+```html
+<body class="text-sky-950 text-lg"></body>
 ```
-<body class="text-sky-950 text-lg">
-```
 
-- Note the terminal gives you some feedback that the CSS has been rebuilt.
-- Reload the page see the change.
-  To understand what these classes are doing see:
-
+- Note the shell/terminal gives you some feedback that the CSS has been rebuilt.
+- Reload the page in the browser to see the change.
+- To understand what these classes are doing see the following:
   - colours - https://tailwindcss.com/docs/customizing-colors
   - changing the text colour https://tailwindcss.com/docs/text-color#basic-usage
   - changing the font-size https://tailwindcss.com/docs/font-size#basic-usage
-
-- Open style.css, find the `text-sky-950` class (do a ctrl+f).
+- Open _style.css_, this is the CSS file that Tailwind generates.
+  - Find the `text-sky-950` class (do a ctrl+f).
   - See how Tailwind has generated the CSS rule.
 
 ## Styling the Navigation Bar
@@ -118,44 +112,153 @@ Previously we styled the navigation bar using the following CSS
 }
 ```
 
-- Try and re-create this using Tailwind. For most properties you should be able to
-  search on the Tailwind website to find the equivalent Tailwind class and then add these classes in _index.html_.
-
-For example we need to set a background colour and text colour for the `header` element. So we'd add a class attribute to the header tag and use the `bg-sky-950` and `text-white` classes.
+- Try and re-create this using Tailwind. For most properties you should be able to search on the Tailwind website to find the equivalent Tailwind class and then add these classes in _index.html_. For example we need to set a background colour and text colour for the `header` element. So we'd add a class attribute to the `header` tag and use the `bg-sky-950` and `text-white` classes i.e.
 
 ```html
 <header class="bg-sky-950 text-white"></header>
 ```
 
-- You don't need to make any changes to the CSS files! You only need to edit _index.html_
+- Try and do the same for the other HTML elements in the `header`.
+  - You don't need to make any changes to the CSS files! You only need to edit _index.html_
+- If you get stuck here's a final correct version:
 
-- If you get stuck here's a final working version:
-
+```html
+<header class="bg-sky-950 text-white">
+  <!--desktop-header-wrapper-->
+  <div>
+    <!--header-wrapper-->
+    <div class="flex justify-between p-3">
+      <!--logo-->
+      <div>Amazing Film App</div>
+      <!-- open icon-->
+      <div onclick="toggleNav()" id="openIcon" class="cursor-pointer hidden">
+        <svg width="30px" viewBox="0 0 10 10" fill="none">
+          <path d="M1 1h8M1 4h 8M1 7h8" stroke="#fff" stroke-width="1" />
+        </svg>
+      </div>
+      <!-- close icon-->
+      <div onclick="toggleNav()" id="closeIcon" class="cursor-pointer">X</div>
+    </div>
+    <nav>
+      <ul id="navList">
+        <li class="border-t border-white">
+          <a class="block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25" href="#"
+            >Home</a
+          >
+        </li>
+        <li class="border-t border-white">
+          <a class="block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25" href="#"
+            >Add New film</a
+          >
+        </li>
+        <li class="border-t border-white">
+          <a class="block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25" href="#"
+            >About</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 ```
 
-```
-
-- There are already `onclick` event handlers for the menu icons.
-
-the navigation will work, we had to change the class name in the js to use the tailwind classname
+- There are already `onclick` event handlers for the menu icons. If you look in `app.js`, you will see that this references the Tailwind `hidden` class to toggle the visibility of page elements.
+  - The navigation will show/hide without us having to make any further changes.
 
 ## Styling the Main Content of the Page
 
-again, here is the css we applied previously
+- Again, here is the CSS we applied previously
 
-try and find the equivalent tailwind css classes and apply them
+```css
+/* CSS rules for the page contents*/
+.main-content {
+  padding: 0.25em;
+}
+.content-list {
+  padding: 0;
+}
+.content-opt {
+  border-bottom: 1px solid rgb(8, 47, 73);
+}
+.content-link {
+  display: block;
+}
+.poster {
+  display: block;
+  margin: auto;
+}
+```
 
-your design won't be an exact match e.g. the headings, try and find additional tailwind properties to get the headings looking correct.
+- Try and find the equivalent Tailwind css classes and add them to _index.html_.
+- Your design won't be an exact match, try and find additional Tailwind properties to get the headings looking correct.
 
 ## Making This Responsive
 
-media queries are done with a modifier
+Media queries are done in Tailwind by adding a modifier (`sm`,`md`,`lg` etc) to the class name e.g. `sm:text-red` will only apply this rule if the screen size is 640px or bigger. See https://tailwindcss.com/docs/responsive-design for more info.
 
-demo the header example
+- Change the header to the following:-
+
+```html
+<header class="bg-sky-950 text-white">
+  <!--desktop-header-wrapper-->
+  <div class="sm:flex sm:justify-between">
+    <!--header-wrapper-->
+    <div class="flex justify-between p-3">
+      <!--logo-->
+      <div>Amazing Film App</div>
+      <!-- open icon-->
+      <div
+        onclick="toggleNav()"
+        id="openIcon"
+        class="cursor-pointer hidden sm:hidden"
+      >
+        <svg width="30px" viewBox="0 0 10 10" fill="none">
+          <path d="M1 1h8M1 4h 8M1 7h8" stroke="#fff" stroke-width="1" />
+        </svg>
+      </div>
+      <!-- close icon-->
+      <div
+        onclick="toggleNav()"
+        id="closeIcon"
+        class="cursor-pointer sm:hidden"
+      >
+        X
+      </div>
+    </div>
+    <nav>
+      <ul id="navList" class="sm:block sm:p-3">
+        <li class="sm:inline sm:border-0 border-t border-white">
+          <a
+            class="sm:inline block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
+            href="#"
+            >Home</a
+          >
+        </li>
+        <li class="sm:inline sm:border-0 border-t border-white">
+          <a
+            class="sm:inline block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
+            href="#"
+            >Add New film</a
+          >
+        </li>
+        <li class="sm:inline sm:border-0 border-t border-white">
+          <a
+            class="sm:inline block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
+            href="#"
+            >About</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+```
+
+- Notice the use of the `sm` modifier. For example, we want to hide the open/close icons for wider displays, so we we use `sm:hidden` for these two elements.
 
 ### Adding a Two Columned Layout
 
-- Here's the css fro making a two columned layout at 640px
+- Here's the CSS we used previously for shifting the main content area to a two columned layout.
 
 ```css
 .main-content {
@@ -174,12 +277,31 @@ demo the header example
 }
 ```
 
-have a go at doing this yourself
+- Try and implement these rules using Tailwind classes with the `sm` modifier e.g. the containing `div` for the main content would look like:
+
+```html
+<!-- main-content-->
+<div class="p-1 sm:flex sm:flex-row sm:flex-wrap"></div>
+```
 
 ### Limiting the Final Page Size
 
-do this yourself
+- Previously, when the screen size got to over 1000px we switched to a fixed size design. We used a media query to do this:-
+
+```css
+@media screen and (min-width: 1024px) {
+  .desktop-header-wrapper,
+  .main-content {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+```
+
+- Try and do this using Tailwind. You will need to use the `lg` modifier.
 
 ## Testing Your Understanding
 
-like the example earlier this week, the design will need tweaking
+- Like the example we looked at previously, the design will need tweaking e.g. by setting some padding/margins on elements.
+- You might also want to look at how we can customise Tailwind e.g. if we want to use our own colours or fonts (https://tailwindcss.com/docs/configuration).

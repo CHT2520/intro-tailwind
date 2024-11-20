@@ -5,8 +5,8 @@ First you need to make sure you have installed Node.js - [Getting Started with N
 - Once you have Node.js up and running:
   - Download (or clone) this repository and unzip it into your _htdocs_ folder.
   - Open the folder in VS Code.
-    - You should see this the same example we looked at in the last session.
-  - Open index.html in a web browser
+    - You should see this is the same example we looked at in the session earlier this week.
+  - Open *index.html* in a web browser
     - At the moment it has no styling, we are going to style this page using Tailwind
 
 ## Installing Tailwind

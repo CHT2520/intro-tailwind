@@ -9,14 +9,14 @@
   - Inside this folder there should be a 'node.exe' file.
 - Open the XAMPP Control Panel
 - Open the XAMPP shell
-- Enter the following command to add Node.js to the path. this will make it accessible whenever we use the XAMPP shell
+- Enter the following command to add Node.js to the path. This will make it accessible whenever we use the XAMPP shell
 
 ```
 set PATH=\node;%PATH%
 ```
 
 - Close the shell
-- To make sure this has worked open the shell again and enter the following
+- To make sure this has worked, open the shell again and enter the following
 
 ```
 node -v
@@ -37,7 +37,7 @@ If successful, these commands should simply list the version numbers of Node and
   - Run the downloaded .exe file.
     - Accept the license agreement
     - Install the necessary tools
-- To make sure this has worked open a terminal and enter the following
+- To make sure this has worked, open a terminal and enter the following:
 
 ```
 node -v

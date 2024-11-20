@@ -12,9 +12,9 @@ First you need to make sure you have installed Node.js - [Getting Started with N
 ## Installing Tailwind
 
 - Using the shell/terminal navigate to the project directory.
-- To make sure you are in the right place. use `ls`/`dir` to make sure you are in the correct folder.
+- To make sure you are in the right place. Use `ls`/`dir` to make sure you are in the correct folder.
   - You should see _index.html_ listed along with the _js_ and _css_ folders.
-- Next install tailwind
+- Next, install tailwind
 
 ```
 npm install -D tailwindcss

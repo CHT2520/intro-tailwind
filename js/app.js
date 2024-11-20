@@ -6,7 +6,7 @@ const closeIcon = document.querySelector("#closeIcon");
 
 //toggle the hide css class for these elements
 function toggleNav(){
-    navList.classList.toggle('hide')
-    openIcon.classList.toggle('hide')
-    closeIcon.classList.toggle('hide')
+    navList.classList.toggle('hidden')
+    openIcon.classList.toggle('hidden')
+    closeIcon.classList.toggle('hidden')
 }

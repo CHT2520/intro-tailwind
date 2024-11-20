@@ -1,56 +1,93 @@
-# Responsive Design
+# Getting Started with Tailwind
 
 - Download (or clone) this repository and unzip it.
 - Open the folder in VS Code.
-- Open *index.html* in a browser. It only uses front-end technologies so doesn't need to be on a web server to run.
-  - It doesn't have any styling, but make sure you can view the page.
-  - In VS Code, take a moment to look through the HTML.
+  - You should see this is exactly the same as the example we looked at in the last session.
+- Open index.html in a web browser
+  - At the moment it has no styling, we are going to style this page using Tailwind
 
-  - Notice that SVG has been used to create the 'hamburger' icon.
+# Installing Nodejs
 
-We will take a mobile first strategy and implement a responsive design for this web page.
+# Installing Tailwind
 
-- In a browser open the developer tools (right-click on the page and select inspect).
-- Resize the web page to about 500px, mimicking how the page would look on a mobile device.
+- Using the shell/terminal navigate to the intro-to-tailwind directory.
 
-## Designing for Mobile
+- To make sure you are in the right place enter the followinf
 
-### Adding Some Basic Styles
+```
+dir
+```
 
-- A CSS file has already been linked to the page. Find _css/style.css_ and add the following CSS rules:
+- You should see the index.html file listed along with the js and css folder.
+- Next install tailwind
 
-```css
-/*Basic properties*/
+```
+npm install -D tailwindcss
+```
 
-html {
-  margin: 0;
-}
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(8, 47, 73);
-  font-size: 1.1em;
-  line-height: 1.5;
-}
-div,
-ul,
-header,
-nav {
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-}
-li {
-  list-style-type: none;
+- Initialise tailwind
+
+```
+npx tailwindcss init
+```
+
+- This will create a tailwind.config.js file.
+- Open this file
+- Modify it so it points to 'index.html'
+
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./index.html"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }
 ```
-- This simply sets up some basic styles for elements in the page.
-- Refresh the page in the browser, make sure you can see the changes.
+
+- Under content we are specfying which files tailwind should look at for references to its CSS rules.
+
+- Add tailwind directives to css/input.css
+  - This simple loads some basic CSS rules that tailwind uses.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+In your terminal/shell enter
+
+```
+npx tailwindcss -i ./css/input.css -o ./css/style.css --watch
+```
+
+- Open in a browser, you should find that tailwind has applied its default base styles to your web page.
+
+## Using Tailwind
+
+- To use tailwind, we don't write our own CSS instead we simply use classes from the tailwind framework.
+- In index.html add a class attribute to the body tag i.e.
+
+```
+<body class="text-sky-950 text-lg">
+```
+
+- Note the terminal gives you some feedback that the CSS has been rebuilt.
+- Reload the page see the change.
+  To understand what these classes are doing see:
+
+  - colours - https://tailwindcss.com/docs/customizing-colors
+  - changing the text colour https://tailwindcss.com/docs/text-color#basic-usage
+  - changing the font-size https://tailwindcss.com/docs/font-size#basic-usage
+
+- Open style.css, find the `text-sky-950` class (do a ctrl+f).
+  - See how Tailwind has generated the CSS rule.
 
 ## Styling the Navigation Bar
 
-- Next, add some rules to style the navigation bar
+Previously we styled the navigation bar using the following CSS
 
 ```css
 /* CSS rules for the header*/
@@ -80,157 +117,45 @@ li {
   cursor: pointer;
 }
 ```
-- Check these work.
-- Most of this is fairly basic CSS. There are a couple of interesting bits
-  - By making `header-wrapper` a flexbox, its child elements (the logo and navigation icons) wrap onto the same line `justify-content:space-between` distributes these elements evenly.
-  - The `cursor:pointer` is needed to make the navigation icons act like buttons. When the user moves their mouse over them a pointer icon is displayed.
+
+- Try and re-create this using Tailwind. For most properties you should be able to
+  search on the Tailwind website to find the equivalent Tailwind class and then add these classes in _index.html_.
+
+For example we need to set a background colour and text colour for the `header` element. So we'd add a class attribute to the header tag and use the `bg-sky-950` and `text-white` classes.
+
+```html
+<header class="bg-sky-950 text-white"></header>
+```
+
+- You don't need to make any changes to the CSS files! You only need to edit _index.html_
+
+- If you get stuck here's a final working version:
+
+```
+
+```
+
+- There are already `onclick` event handlers for the menu icons.
+
+the navigation will work, we had to change the class name in the js to use the tailwind classname
 
 ## Styling the Main Content of the Page
 
-Next, add some rules to style the main content of the page
+again, here is the css we applied previously
 
-```css
-/* CSS rules for the page contents*/
-.main-content {
-  padding: 0.25em;
-}
-.content-list {
-  padding: 0;
-}
-.content-opt {
-  border-bottom: 1px solid rgb(8, 47, 73);
-}
-.content-link {
-  display: block;
-}
-.poster {
-  display: block;
-  margin: auto;
-}
-```
-- Check this works.
-- Again, there isn't anything too complex here.
-  - We want the image of the film poster to always sit in the centre of the page. This is achieved by making it a block level element and setting `margin:auto`.
-  - Try re-sizing the browser window, the poster should always sit in the centre of the page.
+try and find the equivalent tailwind css classes and apply them
 
-## Hiding and Showing the Navigation
-
-- Add the following `hide` class to the CSS.
-
-```css
-.hide {
-  display: none;
-}
-```
-
-- Add this class to the hamburger (the open) icon i.e.
-
-```html
-<div id="openIcon" class="hide menu-icon">
-  <svg width="30px" viewBox="0 0 10 10" fill="none">
-    <path d="M1 1h8M1 4h 8M1 7h8" stroke="#666" stroke-width="1" />
-  </svg>
-</div>
-```
-
-- Refresh the page, the hamburger icon should be hidden.
-
-- At the bottom of the HTML page there is a link to a JavaScript file.
-- Have a look at the JavaScript file.
-
-  - Even if you've never used JavaScript before you should be able to make sense of this code.
-  - The first three lines grab hold of HTML elements. See if you can find these elements in the HTML page.
-  - The `toggleNav()` function will 'toggle' the `hide` class for these elements. So if an element is hidden it will be made visible and vice versa.
-
-- The final thing we need to do to is run this function when the user clicks the close icon or the hamburger icon.
-- Modify the HTML of the close icon to add an `onclick` handler that will call the `toggleNav()` function i.e.
-
-```html
-<div id="closeIcon" onclick="toggleNav()" class="menu-icon ">X</div>
-```
-
-- Test this works.
-
-  - When the user clicks the 'X', the menu and close icon will be hidden and the hamburger icon will be made visible.
-
-- Finally, add a click event handler to the hamburger icon so the user can make them visible again.
-
-```html
-<div onclick="toggleNav()" id="openIcon" class="hide menu-icon">
-  <svg width="30px" viewBox="0 0 10 10" fill="none">
-    <path d="M1 1h8M1 4h 8M1 7h8" stroke="#666" stroke-width="1" />
-  </svg>
-</div>
-```
-
-- Again test this works. The menu should fully work allowing the user to hide/show the navigation options.
+your design won't be an exact match e.g. the headings, try and find additional tailwind properties to get the headings looking correct.
 
 ## Making This Responsive
 
-This design works fine for mobile users. For users with larger displays they don't need to hide/show the navigation and we can use a multi-column layout.
+media queries are done with a modifier
 
-- Add the following media query to the CSS file.
-
-```css
-@media screen and (min-width: 640px) {
-  .menu-icon {
-    display: none;
-  }
-  .nav-list {
-    display: block;
-  }
-  .nav-opt {
-    display: inline-block;
-    border-top: 0;
-  }
-}
-```
-
-- This simply hides the menu icons (we don't need them), makes sure the navigation options are visible, and wraps the navigation options onto the same line.
-- Test this works.
-
-We don't want the navigation options to appear below the logo, we want them to be horizontally aligned with the logo.
-- Add a new div `desktop-header-wrapper`, make sure you add the `div` in the correct place i.e.
-
-```html
-<header class="header">
-  <!--this is the new opening div-->
-  <div class="desktop-header-wrapper">
-    <div class="header-wrapper">
-      <div class="logo">Amazing Film App</div>
-      <div onclick="toggleNav()" id="openIcon" class="menu-icon">
-        <svg width="30px" viewBox="0 0 10 10" fill="none">
-          <path d="M1 1h8M1 4h 8M1 7h8" stroke="#666" stroke-width="1" />
-        </svg>
-      </div>
-      <div id="closeIcon" onclick="toggleNav()" class="menu-icon hide">X</div>
-    </div>
-    <nav>
-      <ul id="navList" class="nav-list">
-        <li class="nav-opt"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-opt"><a class="nav-link" href="#">Add New film</a></li>
-        <li class="nav-opt"><a class="nav-link" href="#">About</a></li>
-      </ul>
-    </nav>
-  <!--the new div closes here-->
-  </div>
-</header>
-```
-- Add a new css rule for this `div` element, making sure it is inside the media query declaration.
-
-```css
-.desktop-header-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-```
-
-- Save the changes and test in a browser.
-  - The navigation options should be aligned to the right-hand side, inside the header.
+demo the header example
 
 ### Adding a Two Columned Layout
 
-- Add the following CSS rules. Again, make sure this is within the media query declaration.
+- Here's the css fro making a two columned layout at 640px
 
 ```css
 .main-content {
@@ -248,32 +173,13 @@ We don't want the navigation options to appear below the logo, we want them to b
   float: right;
 }
 ```
-- This creates two columns in the main content area of the page.
-  - The 'Recommended' text should be next to the film poster. We used the `float` property to achieve this.
-  - The two lists of films should be side by side. We set their width to 50% and made their parent a flexbox. 
+
+have a go at doing this yourself
 
 ### Limiting the Final Page Size
 
-You should find that this works fine. However, when viewed on a wider display e.g. over 1000px everything gets a bit too spread out.
-
-- Add another media query, this time for displaying at 1024 and larger.
-
-```css
-@media screen and (min-width: 1024px) {
-  .desktop-header-wrapper,
-  .main-content {
-    width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-```
-- Refresh the page, note how it fixes size at 1024 pixels.
-  - The two 'container' divs are limited in size. The `auto` margin makes them always sit in the centre of the page. 
+do this yourself
 
 ## Testing Your Understanding
-- Completing the above gets a basic design to work. There are many ways in which it can be improved.
-- The navigation items would benefit from being given a bit more 'white space' and they need aligning properly with the logo text in both the mobile view and at wider screen sizes. 
-- The links in the main content of the page would benefit from styling e.g. changing the colour to fit with the rest of the design and adding a `hover` to give feedback to the user.
-- The hamburger menu is grey. Can you change this to white.
-- Instead of using an 'X' for the close, can you use an SVG close icon. 
+
+like the example earlier this week, the design will need tweaking

@@ -58,7 +58,7 @@ npx tailwindcss -i ./css/input.css -o ./css/style.css --watch
 ```
 
 - Leave this window open. It is a command to watch for changes in the project and re-generate _style.css_ whenever we make a change.
-- Open in a browser, you should find that Tailwind has applied its default base styles to your web page.
+- Refresh _index.html_ in a browser, you should find that Tailwind has applied its default base styles to your web page.
 
 ## Using Tailwind
 
@@ -73,14 +73,13 @@ npx tailwindcss -i ./css/input.css -o ./css/style.css --watch
 - Reload the page in the browser to see the change.
 - To understand what these classes are doing see the following:
   - colours - https://tailwindcss.com/docs/customizing-colors
-  - changing the text colour https://tailwindcss.com/docs/text-color#basic-usage
-  - changing the font-size https://tailwindcss.com/docs/font-size#basic-usage
+  - changing the text colour - https://tailwindcss.com/docs/text-color#basic-usage
+  - changing the font-size - https://tailwindcss.com/docs/font-size#basic-usage
 - Open _style.css_, this is the CSS file that Tailwind generates.
   - Find the `text-sky-950` class (do a ctrl+f).
-  - See how Tailwind has generated the CSS rule.
+    - See how Tailwind has generated the CSS rule.
 
 ## Styling the Navigation Bar
-
 Previously we styled the navigation bar using the following CSS
 
 ```css
@@ -111,13 +110,11 @@ Previously we styled the navigation bar using the following CSS
   cursor: pointer;
 }
 ```
-
 - Try and re-create this using Tailwind. For most properties you should be able to search on the Tailwind website to find the equivalent Tailwind class and then add these classes in _index.html_. For example we need to set a background colour and text colour for the `header` element. So we'd add a class attribute to the `header` tag and use the `bg-sky-950` and `text-white` classes i.e.
 
 ```html
 <header class="bg-sky-950 text-white"></header>
 ```
-
 - Try and do the same for the other HTML elements in the `header`.
   - You don't need to make any changes to the CSS files! You only need to edit _index.html_
 - If you get stuck here's a final correct version:
@@ -161,13 +158,11 @@ Previously we styled the navigation bar using the following CSS
   </div>
 </header>
 ```
-
 - There are already `onclick` event handlers for the menu icons. If you look in `app.js`, you will see that this references the Tailwind `hidden` class to toggle the visibility of page elements.
   - The navigation will show/hide without us having to make any further changes.
 
 ## Styling the Main Content of the Page
-
-- Again, here is the CSS we applied previously
+Again, here is the CSS we applied previously:
 
 ```css
 /* CSS rules for the page contents*/
@@ -188,7 +183,6 @@ Previously we styled the navigation bar using the following CSS
   margin: auto;
 }
 ```
-
 - Try and find the equivalent Tailwind css classes and add them to _index.html_.
 - Your design won't be an exact match, try and find additional Tailwind properties to get the headings looking correct.
 

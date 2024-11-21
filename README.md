@@ -223,21 +223,21 @@ Media queries are done in Tailwind by adding a modifier (`sm`,`md`,`lg` etc) to 
       <ul id="navList" class="sm:block sm:p-3">
         <li class="sm:inline sm:border-0 border-t border-white">
           <a
-            class="sm:inline block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
+            class="sm:inline-block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
             href="#"
             >Home</a
           >
         </li>
         <li class="sm:inline sm:border-0 border-t border-white">
           <a
-            class="sm:inline block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
+            class="sm:inline-block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
             href="#"
             >Add New film</a
           >
         </li>
         <li class="sm:inline sm:border-0 border-t border-white">
           <a
-            class="sm:inline block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
+            class="sm:inline-block pt-1 pr-3 pb-1 pl-3 hover:bg-white/25"
             href="#"
             >About</a
           >

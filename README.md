@@ -304,7 +304,8 @@ Media queries are done in Tailwind by adding a modifier (`sm`,`md`,`lg` etc) to 
 If you look in your Laravel projects you will see that there is already a *tailwind.config.js* file. Laravel expects us to use Tailwind. 
   - This config file is set-up to look through all the blade files in the resources folder, looking for references to Tailwind CSS classes.
   - There is also a source CSS file *resources/css/app.css* that Tailwind will use as an input to generate the CSS.
-To get Tailwind working, you simply need to
+To get Tailwind working, you simply need to:-
+
 - Install the Tailwind CSS NPM tool in your Laravel project folder
 ```
 npm install -D tailwindcss
@@ -313,5 +314,8 @@ npm install -D tailwindcss
 ```
 npx tailwindcss -i ./resources/css/app.css -o ./public/css/style.css --watch
 ```
-- And finally add the Tailwind classes to your blade files.
+- And finally add the Tailwind classes to your blade files e.g.
+```html
+<body class="bg-emerald-600 p-5 text-white">
+```
 

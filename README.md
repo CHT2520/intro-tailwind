@@ -299,3 +299,19 @@ Media queries are done in Tailwind by adding a modifier (`sm`,`md`,`lg` etc) to 
 
 - Like the example we looked at previously, the design will need tweaking e.g. by setting some padding/margins on elements.
 - You might also want to look at how we can customise Tailwind e.g. if we want to use our own colours or fonts (https://tailwindcss.com/docs/configuration).
+
+## Using Tailwind in Laravel
+If you look in your Laravel projects you will see that there is already a *tailwind.config.js* file. Laravel expects us to use Tailwind. 
+  - This config file is set-up to look through all the blade files in the resources folder, looking for references to Tailwind CSS classes.
+  - There is also a source CSS file *resources/css/app.css* that Tailwind will use as an input to generate the CSS.
+To get Tailwind working, you simply need to
+- Install the Tailwind CSS NPM tool in your Laravel project folder
+```
+npm install -D tailwindcss
+```
+- Instruct Tailwind to generate your CSS
+```
+npx tailwindcss -i ./resources/css/app.css -o ./public/css/style.css --watch
+```
+- And finally add the Tailwind classes to your blade files.
+

@@ -311,6 +311,10 @@ To get Tailwind working, you simply need to:-
 ```
 npm install -D tailwindcss
 ```
+- Initialise Tailwind
+```
+npx tailwindcss init
+```
 - Instruct Tailwind to generate your CSS
 ```
 npx tailwindcss -i ./resources/css/app.css -o ./public/css/style.css --watch
